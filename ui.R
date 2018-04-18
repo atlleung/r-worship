@@ -10,9 +10,17 @@ shinyUI(
      # Sidebar with a slider input for number of bins
      sidebarLayout(
         sidebarPanel(
-            h4(strong("Timer Controller")),
-            actionButton("btn_prev","Previous", width = '49%'),
-            actionButton("btn_next","Next", width = '49%')
+          wellPanel(textInput("txt_verify", "Verification"),
+                    actionButton("btn_verify", "Verify",width = '100%', style = "background-color: lightblue"),
+                    fluidRow(column(12, align = "center",
+                                    h4(textOutput("verifyinfo"))))
+                    ),
+          wellPanel(
+              h4(strong("Timer Controller")),
+              actionButton("btn_prev","Previous", width = '49%'),
+              actionButton("btn_next","Next", width = '49%')
+            )
+            
         ),
 
         # Show a plot of the generated distribution

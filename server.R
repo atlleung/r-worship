@@ -50,6 +50,18 @@ shinyServer(function(input, output, session) {
   }
   )
 
+  observeEvent(input$btn_verify,{
+    response = GET(paste0(url, "task=start"))
+    rsp = fromJSON(rawToChar(response$content))
+    print(rsp$message)
+    id <<- showNotification(
+      rsp$message,
+      duration = 5,
+      type = rsp$type
+    )
+    output$serviceinfo <- renderText("Service Started")
+  })
+  
   observeEvent(input$btn_start,{
     response = GET(paste0(url, "task=start"))
     rsp = fromJSON(rawToChar(response$content))

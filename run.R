@@ -26,6 +26,7 @@ library(jsonlite)
 port <- Sys.getenv('PORT')
 print(port)
 if(is.na(as.numeric(port))){port <- 8888}
+
 shiny::runApp(
   appDir = getwd(),
   host = '0.0.0.0',
