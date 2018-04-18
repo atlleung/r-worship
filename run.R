@@ -8,7 +8,7 @@
 #
 
 library(shiny)
-# library(tidyverse)
+library(tidyverse)
 library(httr)
 library(jsonlite)
 
